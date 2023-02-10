@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "noErrorTruncation": true,
+    "incremental": true,
+    "lib": [
+      "dom",
+      "ES2021"
+    ],
+    "outDir": "dist",
+    "moduleResolution": "node16",
+    "module": "esnext",
+    "target": "es2019",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@michijs/michijs"
+  },
+  "files": ["src/index.ts"],
+  "exclude": [
+    "node_modules"
+  ]
+}
