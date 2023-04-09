@@ -1,63 +1,61 @@
-import { renderSync, ClassJSXElement, FragmentJSXElement, FunctionJSXElement, ObjectJSXElement, css, updateStyleSheet, declareCssVariables, createStyleSheet } from "@michijs/michijs";
+import {
+  renderSync,
+  ClassJSXElement,
+  FragmentJSXElement,
+  FunctionJSXElement,
+  ObjectJSXElement,
+  declareCssVariables,
+  createStyleSheet,
+} from '@michijs/michijs';
 import { themes } from '@storybook/theming';
 
-export const cssVariables = declareCssVariables<{
-  michijsStorybookTextColor: string,
-  michijsStorybookBackground: string
-}>()
+const cssVariables = declareCssVariables<{
+  textColor: string;
+  background: string;
+}>();
 
-export const documentStyle = css`
-  body {
-    padding: 0 !important;
-  }
-  html,
-  body,
-  #root-inner,
-  #root {
-    height: 100%;
-    margin: 0;
-    color: ${cssVariables.michijsStorybookTextColor.var()};
-    background-color: ${cssVariables.michijsStorybookBackground.var()}; 
-  }
-  .container {
-    display: contents
-  }
-`
+const documentStyle = createStyleSheet({
+  body: {
+    padding: '0 !important',
+    color: cssVariables.textColor.var(),
+    backgroundColor: cssVariables.background.var(),
+  },
+  '.dark': {
+    [cssVariables.textColor]: themes['dark'].textColor!,
+    [cssVariables.background]: themes['dark'].appBg!,
+  },
+  '.light': {
+    [cssVariables.textColor]: themes['light'].textColor!,
+    [cssVariables.background]: themes['light'].appBg!,
+  },
+  '#storybook-root': {
+    display: 'contents',
+  },
+});
 
-export const themeStyle = createStyleSheet({
-  '#root': {
-    [cssVariables.michijsStorybookTextColor]: themes['light'].textColor,
-    [cssVariables.michijsStorybookBackground]: themes['light'].appBg
-  }
-})
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, documentStyle];
 
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, documentStyle]
+interface Options {
+  overwriteJSX?: JSX.Element;
+}
 
-export function bind(Story: JSX.Element) {
-  const typedJSXElement = Story as ObjectJSXElement | FunctionJSXElement | FragmentJSXElement | ClassJSXElement;
-  const auxFunction = (attrs, { globals }) => {
-    const { theme, backgrounds } = globals as {
-      theme: 'dark' | 'light', backgrounds?: {
-        value: '#F8F8F8' | '#333333' | 'transparent'
-      }
-    };
-    const storyTheme = backgrounds?.value && backgrounds?.value !== 'transparent' ? (backgrounds.value === '#333333' ? 'dark' : 'light') : undefined;
-    const finalTheme = storyTheme ?? theme;
-    updateStyleSheet(themeStyle, {
-      '#root': {
-        [cssVariables.michijsStorybookTextColor]: themes[finalTheme].textColor,
-        [cssVariables.michijsStorybookBackground]: themes[finalTheme].appBg
-      }
-    })
+export function bind(Story: JSX.Element, options?: Options) {
+  const typedJSXElement = Story as
+    | ObjectJSXElement
+    | FunctionJSXElement
+    | FragmentJSXElement
+    | ClassJSXElement;
+  const auxFunction = (attrs) => {
+    typedJSXElement.attrs = { ...typedJSXElement.attrs, ...attrs };
 
-    typedJSXElement.attrs = { ...typedJSXElement.attrs, ...attrs }
-
-    const fragment = document.createElement('div');
-    fragment.className = 'container'
-    renderSync(Story, fragment);
+    const fragment = document.createDocumentFragment();
+    renderSync(options?.overwriteJSX ?? Story, fragment);
     return fragment;
   };
   const templateBind = auxFunction.bind({});
-  (templateBind as typeof templateBind & { args: typeof typedJSXElement.attrs }).args = typedJSXElement.attrs ?? {};
+  const { children, ...attrsWithoutChildren } = typedJSXElement.attrs;
+  (
+    templateBind as typeof templateBind & { args: typeof attrsWithoutChildren }
+  ).args = attrsWithoutChildren ?? {};
   return templateBind;
 }
