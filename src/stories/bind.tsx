@@ -28,7 +28,7 @@ const documentStyle = createStyleSheet({
     [cssVariables.storybookTextColor]: themes['light'].textColor!,
     [cssVariables.storybookBackground]: themes['light'].appBg!,
   },
-  '#storybook-root': {
+  '#storybook-root, #storybook-michijs-wrapper': {
     display: 'contents',
   },
 });
@@ -48,7 +48,8 @@ export function bind(Story: JSX.Element, options?: Options) {
   const auxFunction = (attrs) => {
     typedJSXElement.attrs = { ...typedJSXElement.attrs, ...attrs };
 
-    const fragment = document.createDocumentFragment();
+    const fragment = document.createElement('div');
+    fragment.id = 'storybook-michijs-wrapper';
     renderSync(options?.overwriteJSX ?? Story, fragment);
     return fragment;
   };
