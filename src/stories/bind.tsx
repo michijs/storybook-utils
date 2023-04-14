@@ -10,23 +10,23 @@ import {
 import { themes } from '@storybook/theming';
 
 const cssVariables = declareCssVariables<{
-  textColor: string;
-  background: string;
+  storybookTextColor: string;
+  storybookBackground: string;
 }>();
 
 const documentStyle = createStyleSheet({
   body: {
     padding: '0 !important',
-    color: cssVariables.textColor.var(),
-    backgroundColor: cssVariables.background.var(),
+    color: cssVariables.storybookTextColor.var(),
+    backgroundColor: cssVariables.storybookBackground.var(),
   },
   '.dark': {
-    [cssVariables.textColor]: themes['dark'].textColor!,
-    [cssVariables.background]: themes['dark'].appBg!,
+    [cssVariables.storybookTextColor]: themes['dark'].textColor!,
+    [cssVariables.storybookBackground]: themes['dark'].appBg!,
   },
   '.light': {
-    [cssVariables.textColor]: themes['light'].textColor!,
-    [cssVariables.background]: themes['light'].appBg!,
+    [cssVariables.storybookTextColor]: themes['light'].textColor!,
+    [cssVariables.storybookBackground]: themes['light'].appBg!,
   },
   '#storybook-root': {
     display: 'contents',
