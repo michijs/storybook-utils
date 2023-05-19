@@ -1,7 +1,7 @@
 {
   "name": "@michijs/storybook-utils",
   "license": "MIT",
-  "version": "7.0.3",
+  "version": "7.0.5",
   "description": "Utilities for the Michijs Storybook template",
   "files": [
     "dist/"
@@ -26,8 +26,8 @@
     "typescript": "5.0.4"
   },
   "peerDependencies": {
-    "@storybook/theming": "7.0.4",
-    "@storybook/types": "7.0.4",
+    "@storybook/theming": "7.0.5",
+    "@storybook/types": "7.0.5",
     "@michijs/michijs": "1.1.7"
   }
 }
