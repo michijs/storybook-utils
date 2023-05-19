@@ -6,8 +6,8 @@ import {
   ObjectJSXElement,
   declareCssVariables,
   createStyleSheet,
-} from '@michijs/michijs';
-import { themes } from '@storybook/theming';
+} from "@michijs/michijs";
+import { themes } from "@storybook/theming";
 
 const cssVariables = declareCssVariables<{
   storybookTextColor: string;
@@ -16,20 +16,20 @@ const cssVariables = declareCssVariables<{
 
 const documentStyle = createStyleSheet({
   body: {
-    padding: '0 !important',
+    padding: "0 !important",
     color: cssVariables.storybookTextColor.var(),
     backgroundColor: cssVariables.storybookBackground.var(),
   },
-  '.dark': {
-    [cssVariables.storybookTextColor]: themes['dark'].textColor!,
-    [cssVariables.storybookBackground]: themes['dark'].appBg!,
+  ".dark": {
+    [cssVariables.storybookTextColor]: themes["dark"].textColor!,
+    [cssVariables.storybookBackground]: themes["dark"].appBg!,
   },
-  '.light': {
-    [cssVariables.storybookTextColor]: themes['light'].textColor!,
-    [cssVariables.storybookBackground]: themes['light'].appBg!,
+  ".light": {
+    [cssVariables.storybookTextColor]: themes["light"].textColor!,
+    [cssVariables.storybookBackground]: themes["light"].appBg!,
   },
-  '#storybook-root, #storybook-michijs-wrapper': {
-    display: 'contents',
+  "#storybook-root, #storybook-michijs-wrapper": {
+    display: "contents",
   },
 });
 
@@ -48,8 +48,8 @@ export function bind(Story: JSX.Element, options?: Options) {
   const auxFunction = (attrs) => {
     typedJSXElement.attrs = { ...typedJSXElement.attrs, ...attrs };
 
-    const fragment = document.createElement('div');
-    fragment.id = 'storybook-michijs-wrapper';
+    const fragment = document.createElement("div");
+    fragment.id = "storybook-michijs-wrapper";
     renderSync(options?.overwriteJSX ?? Story, fragment);
     return fragment;
   };
