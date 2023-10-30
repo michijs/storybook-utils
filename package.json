@@ -1,7 +1,7 @@
 {
   "name": "@michijs/storybook-utils",
   "license": "MIT",
-  "version": "7.5.3-beta.2",
+  "version": "7.5.3-beta.3",
   "description": "Utilities for the Michijs Storybook template",
   "files": [
     "dist/"
