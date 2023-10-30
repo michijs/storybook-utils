@@ -6,6 +6,9 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "url": "https://github.com/michijs/storybook-utils"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
