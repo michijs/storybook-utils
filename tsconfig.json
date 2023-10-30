@@ -17,8 +17,8 @@
       "ES2021"
     ],
     "outDir": "dist",
-    "moduleResolution": "node16",
-    "module": "esnext",
+    "moduleResolution": "node",
+    "module": "ESNext",
     "target": "es2019",
     "noUnusedLocals": false,
     "noUnusedParameters": false,

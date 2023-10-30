@@ -4,17 +4,17 @@ import {
   FragmentJSXElement,
   FunctionJSXElement,
   ObjectJSXElement,
-  declareCssVariables,
-  createStyleSheet,
+  useCssVariablesDeclaration,
+  useStyleSheet,
 } from "@michijs/michijs";
 import { themes } from "@storybook/theming";
 
-const cssVariables = declareCssVariables<{
+const cssVariables = useCssVariablesDeclaration<{
   storybookTextColor: string;
   storybookBackground: string;
 }>();
 
-const documentStyle = createStyleSheet({
+const documentStyle = useStyleSheet({
   body: {
     padding: "0 !important",
     color: cssVariables.storybookTextColor.var(),
