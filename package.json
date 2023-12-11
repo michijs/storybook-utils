@@ -27,7 +27,7 @@
     "web-components"
   ],
   "devDependencies": {
-    "typescript": "5.2.2"
+    "typescript": "5.3.3"
   },
   "peerDependencies": {
     "@storybook/theming": "7.5.2",
