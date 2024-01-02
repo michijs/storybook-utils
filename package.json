@@ -32,6 +32,6 @@
   "peerDependencies": {
     "@storybook/theming": "7.5.2",
     "@storybook/types": "7.5.2",
-    "@michijs/michijs": "2.0.0-beta.2"
+    "@michijs/michijs": "^2.0.0-beta.13"
   }
 }

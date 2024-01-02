@@ -4,12 +4,12 @@ import {
   FragmentJSXElement,
   FunctionJSXElement,
   ObjectJSXElement,
-  useCssVariablesDeclaration,
+  useCssVariables,
   useStyleSheet,
 } from "@michijs/michijs";
 import { themes } from "@storybook/theming";
 
-const cssVariables = useCssVariablesDeclaration<{
+const cssVariables = useCssVariables<{
   storybookTextColor: string;
   storybookBackground: string;
 }>();
@@ -17,8 +17,8 @@ const cssVariables = useCssVariablesDeclaration<{
 const documentStyle = useStyleSheet({
   body: {
     padding: "0 !important",
-    color: cssVariables.storybookTextColor.var(),
-    backgroundColor: cssVariables.storybookBackground.var(),
+    color: cssVariables.storybookTextColor(),
+    backgroundColor: cssVariables.storybookBackground(),
   },
   ".dark": {
     [cssVariables.storybookTextColor]: themes["dark"].textColor!,
