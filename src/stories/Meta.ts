@@ -1,6 +1,6 @@
 import type { ComponentAnnotations, Args } from "@storybook/types";
-import { GetElementProps } from "@michijs/michijs";
-import { MichiRenderer } from "./Preview";
+import type { GetElementProps } from "@michijs/michijs";
+import type { MichiRenderer } from "./Preview";
 
 export type Meta<T = Args, A = {}> = ComponentAnnotations<
   MichiRenderer,

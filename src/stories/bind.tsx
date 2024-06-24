@@ -1,9 +1,9 @@
 import {
   renderSync,
-  ClassJSXElement,
-  FragmentJSXElement,
-  FunctionJSXElement,
-  ObjectJSXElement,
+  type ClassJSXElement,
+  type FragmentJSXElement,
+  type FunctionJSXElement,
+  type ObjectJSXElement,
   useCssVariables,
   useStyleSheet,
 } from "@michijs/michijs";
