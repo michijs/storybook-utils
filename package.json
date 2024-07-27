@@ -20,18 +20,19 @@
   "module": "dist/index.js",
   "scripts": {
     "dist": "tsc",
-    "publish-npm": "npm run dist && npm publish --access public",
-    "link": "tsc && npm link --force && tsc -w"
+    "dist-w": "tsc -w",
+    "bun-link": "bun link --force",
+    "link": "bunx concurrently bun:dist-w bun:bun-link"
   },
   "keywords": [
     "web-components"
   ],
   "devDependencies": {
-    "typescript": "5.5.2"
+    "typescript": "5.5.3"
   },
   "peerDependencies": {
-    "@storybook/theming": "7.5.2",
-    "@storybook/types": "7.5.2",
-    "@michijs/michijs": "^2.0.0-beta.13"
+    "@storybook/theming": "8.2.6",
+    "@storybook/types": "8.2.6",
+    "@michijs/michijs": "^2.0.0-beta.90"
   }
 }
