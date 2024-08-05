@@ -1,3 +1,3 @@
 export * from "./bind";
-export { Meta } from "./Meta";
-export { Preview } from "./Preview";
+export type { Meta } from "./Meta";
+export type { Preview } from "./Preview";

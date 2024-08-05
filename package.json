@@ -19,6 +19,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
+    "test-tsc": "tsc --skipLibCheck --noEmit",
     "dist": "tsc",
     "dist-w": "tsc -w",
     "bun-link": "bun link --force",
@@ -28,6 +29,7 @@
     "web-components"
   ],
   "devDependencies": {
+    "@michijs/tsconfig": "0.0.3",
     "typescript": "5.5.3"
   },
   "peerDependencies": {
