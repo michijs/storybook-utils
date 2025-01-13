@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "@michijs/tsconfig": "0.0.4",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   },
   "peerDependencies": {
     "@storybook/theming": "8.4.7",
