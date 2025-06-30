@@ -29,7 +29,7 @@
     "web-components"
   ],
   "devDependencies": {
-    "@michijs/tsconfig": "0.0.4",
+    "@michijs/tsconfig": "0.0.5",
     "typescript": "5.8.3"
   },
   "peerDependencies": {
