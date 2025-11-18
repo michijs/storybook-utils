@@ -29,6 +29,7 @@
     "web-components"
   ],
   "devDependencies": {
+    "@michijs/shared-configs": "0.0.24",
     "@michijs/tsconfig": "0.0.5",
     "typescript": "5.9.3"
   },
