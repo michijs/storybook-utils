@@ -7,7 +7,7 @@ import {
   useCssVariables,
   useStyleSheet,
 } from "@michijs/michijs";
-import { themes } from 'storybook/theming';
+import { themes } from "storybook/theming";
 
 const cssVariables = useCssVariables<{
   storybookTextColor: string;
