@@ -29,12 +29,11 @@
     "web-components"
   ],
   "devDependencies": {
-    "@michijs/tsconfig": "0.0.5",
-    "typescript": "5.9.2"
+    "@michijs/shared-configs": "0.0.31",
+    "typescript": "5.9.3"
   },
   "peerDependencies": {
-    "@storybook/theming": "8.4.7",
-    "@storybook/types": "8.4.7",
-    "@michijs/michijs": "^2.1.5"
+    "storybook": "^10.1.2",
+    "@michijs/michijs": "^2.3.30"
   }
 }
