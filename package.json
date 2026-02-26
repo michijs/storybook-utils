@@ -23,7 +23,7 @@
     "dist": "tsc",
     "dist-w": "tsc -w",
     "bun-link": "bun link --force",
-    "link": "bunx concurrently bun:dist-w bun:bun-link"
+    "link": "bun run --parallel dist-w bun-link"
   },
   "keywords": [
     "web-components"
