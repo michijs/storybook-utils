@@ -29,8 +29,8 @@
     "web-components"
   ],
   "devDependencies": {
-    "@michijs/shared-configs": "0.0.35",
-    "typescript": "5.9.3"
+    "@michijs/shared-configs": "0.0.37",
+    "typescript": "6.0.2"
   },
   "peerDependencies": {
     "@storybook/types": "^8.6.14",
