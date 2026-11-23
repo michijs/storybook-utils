@@ -29,7 +29,7 @@
     "web-components"
   ],
   "devDependencies": {
-    "@michijs/shared-configs": "0.0.37",
+    "@michijs/shared-configs": "0.0.38",
     "typescript": "7.0.2"
   },
   "peerDependencies": {
